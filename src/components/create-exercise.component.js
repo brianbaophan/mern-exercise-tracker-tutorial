@@ -55,16 +55,16 @@ class CreateExercises extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    // const exercise = {
-    //   username: this.state.username,
-    //   description: this.state.description,
-    //   duration: this.state.duration,
-    //   date: this.state.date
-    // };
+    const exercise = {
+      username: this.state.username,
+      description: this.state.description,
+      duration: this.state.duration,
+      date: this.state.date
+    };
 
-    console.log('Hey there');
+    console.log(`Exercise created >>> ${exercise}`);
 
-    // window.location = '/';
+    window.location = '/';
   }
 
   render() {
@@ -72,6 +72,23 @@ class CreateExercises extends Component {
       <div>
         <h3>Create New Exercise</h3>
         <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label>Username:</label>
+            <select
+              className="form-control"
+              required="true"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            >
+              {this.state.users.map(user => {
+                return (
+                  <option key={user} value={user}>
+                    {user}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
           <div className="form-group">
             <label>Description:</label>
             <input
