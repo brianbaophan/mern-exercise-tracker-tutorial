@@ -62,7 +62,8 @@ class CreateExercises extends Component {
       date: this.state.date
     };
 
-    console.log(`Exercise created >>> ${exercise}`);
+    console.log('Exercise created!');
+    console.log(exercise);
 
     window.location = '/';
   }
